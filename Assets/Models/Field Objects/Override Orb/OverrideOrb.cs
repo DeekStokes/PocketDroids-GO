@@ -18,28 +18,25 @@ public class OverrideOrb : MonoBehaviour {
 	private bool released;
 	private bool holding;
 	private bool trackingCollisions = false;
-	private Rigidbody rigidbody;
+	private Rigidbody rgb;
 	private AudioSource audioSource;
 	private InputStatus inputStatus;
-
 	private enum InputStatus {
 		Grabbing,
 		Holding,
 		Releasing,
 		None
 	}
-
 	private void Awake() {
 		audioSource = GetComponent<AudioSource>();
-		rigidbody = GetComponent<Rigidbody>();
+		rgb = GetComponent<Rigidbody>();
 
 		Assert.IsNotNull(audioSource);
-		Assert.IsNotNull(rigidbody);
+		Assert.IsNotNull(rgb);
 		Assert.IsNotNull(dropSound);
 		Assert.IsNotNull(successSound);
 		Assert.IsNotNull(throwSound);
 	}
-
 	private void Update() {
 
 		if (released) {
@@ -67,7 +64,6 @@ public class OverrideOrb : MonoBehaviour {
 				return;
 		}
 	}
-
 	private void UpdateInputStatus() {
 		#if UNITY_EDITOR
 		if (Input.GetMouseButtonDown(0)) {
@@ -94,7 +90,6 @@ public class OverrideOrb : MonoBehaviour {
 		}
 		#endif
 	}
-
 	private void FollowInput() {
 		Vector3 inputPos = GetInputPosition();
 		inputPos.z = Camera.main.nearClipPlane * 7.5f;
@@ -140,19 +135,19 @@ public class OverrideOrb : MonoBehaviour {
 	}
 
 	private void Throw(Vector2 targetPos) {
-		rigidbody.useGravity = true;
+		rgb.useGravity = true;
 		trackingCollisions = true;
 		
 		float yDiff = (targetPos.y - lastY) / Screen.height * 100;
 		float speed = throwSpeed * yDiff;
 
 		float x = (targetPos.x / Screen.width) - (lastX / Screen.width);
-		x = Mathf.Abs(GetInputPosition().x - lastX) / Screen.width * 100 * x;
+		x = Mathf.Abs(GetInputPosition().x - lastX) / (Screen.width * 100 * x);
 
 		Vector3 direction = new Vector3(x, 0.0f, 1.0f);
 		direction = Camera.main.transform.TransformDirection(direction);
 
-		rigidbody.AddForce((direction * speed / 2.0f) + Vector3.up * speed);
+		rgb.AddForce((direction * speed / 2.0f) + Vector3.up * speed);
 
 		audioSource.PlayOneShot(throwSound);
 
@@ -176,13 +171,13 @@ public class OverrideOrb : MonoBehaviour {
 		}
 
 		trackingCollisions = false;
-		//if (other.gameObject.CompareTag(PocketDroidsConstants.TAG_DROID)) {
-		//	audioSource.PlayOneShot(successSound);
-		//}
-	//	else {
-		//	audioSource.PlayOneShot(dropSound);
-	//	}
+		if (other.gameObject.CompareTag(PocketDroidConstants.TAG_DROID)) {
+			audioSource.PlayOneShot(successSound);
+		}
+		else {
+			audioSource.PlayOneShot(dropSound);
+		}
 
-		//Invoke("PowerDown", collisionStallTime);
+		Invoke("PowerDown", collisionStallTime);
 	}
 }
