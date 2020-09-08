@@ -29,9 +29,14 @@ public class Player : MonoBehaviour
     {
         get { return droids; }
     }
+
+    public int Lvl
+    {
+        get { return lvl; }
+    }
     public void AddXp(int xp)
     {
-        this.xp = Mathf.Max(0, xp);
+        this.xp += Mathf.Max(0, xp);
     }
     public void AddDroid(GameObject droid)
     {

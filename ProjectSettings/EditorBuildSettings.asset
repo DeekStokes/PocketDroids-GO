@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/CrashCourse/TutorialWorld.unity
+    guid: 29810bb993ef4c74ea6f8a65e0072c8a
   m_configObjects: {}

@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 95753313090206196}
   - component: {fileID: 114140722843414850}
   - component: {fileID: 65917195170857220}
-  - component: {fileID: 82339945623758430}
+  - component: {fileID: 4560890768314839325}
   m_Layer: 0
   m_Name: Droid 2
   m_TagString: Droid
@@ -344,6 +344,7 @@ MonoBehaviour:
   attack: 0
   defense: 0
   hp: 10
+  crySound: {fileID: 8300000, guid: 5aa52a604b3c2ec4791f692a66101704, type: 3}
 --- !u!65 &65917195170857220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -357,7 +358,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.54, y: 4.39, z: 1.5}
   m_Center: {x: 0, y: 2.09, z: 0}
---- !u!82 &82339945623758430
+--- !u!82 &4560890768314839325
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -422,7 +423,7 @@ AudioSource:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -452,7 +453,7 @@ AudioSource:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
 --- !u!1 &1135470118541382
 GameObject:
   m_ObjectHideFlags: 0
