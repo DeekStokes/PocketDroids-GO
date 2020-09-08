@@ -160,7 +160,7 @@ public class OverrideOrb : MonoBehaviour {
 	private void PowerDown() {
 		CaptureSceneManager manager = FindObjectOfType<CaptureSceneManager>();
 		if (manager != null) {
-			//manager.OrbDestroyed();
+			manager.OrbDestroyed();
 		}
 		Destroy(gameObject);
 	}
