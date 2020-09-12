@@ -8,4 +8,5 @@ public class PocketDroidConstants
     public static string SCENE_CAPTURE = "Capture";
 
     public static string TAG_DROID = "Droid";
+    public static string TAG_OVERRIDE_ORB  = "Override Orb";
 }

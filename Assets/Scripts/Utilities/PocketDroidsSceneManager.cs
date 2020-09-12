@@ -7,5 +7,5 @@ public abstract class PocketDroidsSceneManager : MonoBehaviour
     public abstract void PlayerTapped();
     public abstract void droidTapped(GameObject droid);
 
-    public void DroidCollision(GameObject droid, Collision other) { }
+    public virtual void DroidCollision(GameObject droid, Collision other) { }
 }

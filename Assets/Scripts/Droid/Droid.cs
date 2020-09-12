@@ -19,10 +19,6 @@ public class Droid : MonoBehaviour
         Assert.IsNotNull(audioSource);
         Assert.IsNotNull(crySound);
     }
-    private void Start()
-    {
-        DontDestroyOnLoad(this);
-    }
     public float SpawnRate
     {
         get { return spawnRate; }
@@ -48,6 +44,10 @@ public class Droid : MonoBehaviour
         get { return hp; }
     }
 
+    public AudioClip CrySound
+    {
+        get { return crySound; }
+    }
     private void OnMouseDown()
     {
         PocketDroidsSceneManager[] managers = FindObjectsOfType<PocketDroidsSceneManager>();
