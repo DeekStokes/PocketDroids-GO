@@ -41,12 +41,12 @@ public class CaptureSceneUIManager : MonoBehaviour
 
     private void HandleFailure()
     {
-
+        UpdateVisibleScreen();
     }
 
     private void HandleSuccess()
     {
-
+        UpdateVisibleScreen();
     }
 
     private void HandleInProgress()

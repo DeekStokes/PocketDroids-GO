@@ -5426,7 +5426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxThrowAttempts: 3
-  orb: {fileID: 1602176977}
+  orb: {fileID: 1774737372042392, guid: c0f0fefd08dc76049a370437ed5ae5ca, type: 3}
   spawnPoint: {x: 0, y: 1, z: -6.71}
 --- !u!114 &774599561
 MonoBehaviour:
